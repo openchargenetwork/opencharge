@@ -54,7 +54,7 @@ jobs:
             composer update --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
             echo "# Install & Compile npm assets"
-            #npm i && npm run build
+            npm i && npm run build
             echo "Build complete!"
 
             echo "# Run fresh database migrations"

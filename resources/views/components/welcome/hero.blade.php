@@ -54,7 +54,7 @@
 
             <!-- Headline -->
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                <span class="text-gradient">One Protocol.</span> Any Wallet.<br />Trustless Settlement.
+                <span class="text-gradient">One Protocol.</span> Any Wallet.<br />Verifiable Settlement.
             </h1>
 
             <!-- Subheadline -->

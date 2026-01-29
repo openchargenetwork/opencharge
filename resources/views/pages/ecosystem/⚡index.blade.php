@@ -67,41 +67,64 @@ new class extends Component {
             ->values()
             ->all();
     }
+
+    public function getTagsProperty(): array
+    {
+        return [
+            "Merchant",
+            "Vending Machine",
+            "Auto Parking Meters",
+            "Auto Carwash",
+            "Ev Charger",
+            "Restaurant",
+            "Delivery Service",
+            "Power Bank Rental",
+            "Money Transfer",
+            "Currency Exchanger",
+            "OCN Onboarding",
+            "Payment Wallet",
+            "Cash Agents App",
+            "Metadata Indexing and api",
+            "Orders cdn and api",
+            "KYC Provider",
+            "Settlement providers"
+        ];
+    }
 }; ?>
 
 <div class="w-full my-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
-        <flux:heading size="xl">{{ __('OCID Ecosystem') }}</flux:heading>
-        <flux:subheading>{{ __('Browse registered OpenCharge identities') }}</flux:subheading>
+        <flux:heading size="xl">{{ __('Opencharge Ecosystem') }}</flux:heading>
+        <flux:subheading>{{ __('See apps implementing the opencharge protocol') }}</flux:subheading>
     </div>
-
-    <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <div class="flex-1">
-            <flux:input
+     <div class="flex items-center justify-end">
+         
+            <div class="flex items-center gap-3 flex-1 py-3 my-3 border-b">
+                <x-flux::input 
                 wire:model.live.debounce.300ms="search"
                 placeholder="{{ __('Search by name or profile...') }}"
-                icon="magnifying-glass"
-            />
+                    class:input="!shadow-none !rounded-full !border-zinc-200/60" class="sm:max-w-sm"
+                    iconLeading="magnifying-glass" />
+                <x-button.outline variant="flat" class="text-xs" size="sm">All</x-button.outline>
+                <x-button.outline variant="secondary" class="text-xs" size="sm">Merchant</x-button.outline>
+                <x-button.outline variant="secondary" class="text-xs" size="sm">Merchant Gateway</x-button.outline>
+                <x-button.outline variant="secondary" class="text-xs" size="sm">Payment Gateway</x-button.outline>
+                <x-button.outline variant="secondary" class="text-xs" size="sm">KYC Provider</x-button.outline>
+                <x-button.outline variant="secondary" class="text-xs" size="sm">End User</x-button.outline>
+            </div>
         </div>
-
-        <div class="flex gap-4">
-            <flux:select wire:model.live="type" placeholder="{{ __('All Types') }}">
-                <flux:select.option value="">{{ __('All Types') }}</flux:select.option>
-                @foreach ($this->types as $value => $label)
-                    <flux:select.option value="{{ $value }}">{{ $label }}</flux:select.option>
+        <div class="flex items-center justify-end">
+         
+            <div class="flex items-center gap-3 flex-1 flex-wrap mb-6">
+                <x-button.outline wire:click="$set('capability', '')" variant="flat" class="text-xs" size="xs">All Tags</x-button.outline>
+                @foreach( $this->tags as $cap)
+                <x-button.outline wire:click="$set('capability', '{{ $cap }}')" variant="secondary" class="text-xs" size="xs">{{ $cap }}</x-button.outline>
                 @endforeach
-            </flux:select>
-
-            @if (count($this->capabilities) > 0)
-                <flux:select wire:model.live="capability" placeholder="{{ __('All Capabilities') }}">
-                    <flux:select.option value="">{{ __('All Capabilities') }}</flux:select.option>
-                    @foreach ($this->capabilities as $cap)
-                        <flux:select.option value="{{ $cap }}">{{ $cap }}</flux:select.option>
-                    @endforeach
-                </flux:select>
-            @endif
+            </div>
         </div>
-    </div>
+
+
+    
 
     @if ($this->ocids->isEmpty())
         <div class="flex flex-col items-center justify-center rounded-xl border border-dashed border-zinc-300 py-16 dark:border-zinc-700">

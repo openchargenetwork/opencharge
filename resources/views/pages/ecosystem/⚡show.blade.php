@@ -17,7 +17,7 @@ new class extends Component {
     }
 }; ?>
 
-<div class="w-full mt-12 max-w-4xl">
+<div class="w-full mt-12 max-w-4xl mx-auto">
     <div class="mb-6">
         <flux:link href="{{ route('ecosystem.index') }}" class="inline-flex items-center gap-1 text-sm">
             <flux:icon.arrow-left class="size-4" />

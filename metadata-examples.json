@@ -1,0 +1,134 @@
+{
+    "merchant": {
+        "opencharge": "0.1",
+        "name": "Coffee Shop",
+        "profile": "Local coffee shop accepting Opencharge payments",
+        "icon": "https://merchant.example/icon.png",
+        "config": {
+            "publicKey": "a34b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b",
+            "endpoint": "https://api.merchant.example/opencharge",
+            "capabilities": [
+                "orders.create",
+                "orders.status",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": [
+                    "USD"
+                ],
+                "accepts": [
+                    100,
+                    101,
+                    102
+                ]
+            }
+        },
+        "kyc": [
+            540,
+            737,
+            2836
+        ],
+        "signature": "a1b2c3d4e5f6...7f1b",
+        "contact": "support@merchant.example"
+    },
+    "merchant-gateway": {
+        "opencharge": "0.1",
+        "name": "PayFlow Gateway",
+        "profile": "Hosted checkout for online merchants",
+        "icon": "https://pay.gateway.example/icon.png",
+        "config": {
+            "publicKey": "a34b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b",
+            "endpoint": "https://pay.gateway.example/opencharge",
+            "capabilities": [
+                "transfer.create",
+                "transfer.webhook",
+                "payment.create",
+                "payment.settle",
+                "verify.txid"
+            ],
+            "settlement": {
+                "currencies": [
+                    "USD",
+                    "EUR",
+                    "GBP"
+                ],
+                "accepts": [
+                    100,
+                    101,
+                    102
+                ]
+            }
+        },
+        "kyc": [
+            540,
+            737,
+            2836
+        ],
+        "signature": "a1b2c3d4e5f6...7f1b",
+        "contact": "integrations@gateway.example"
+    },
+    "payment-gateway": {
+        "opencharge": "0.1",
+        "name": "QuickPay Wallet",
+        "profile": "Mobile wallet for fast payments",
+        "icon": "https://wallet.example/icon.png",
+        "config": {
+            "publicKey": "a34b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b",
+            "endpoint": "https://api.wallet.example/opencharge",
+            "capabilities": [
+                "checkout.create",
+                "orders.create.session",
+                "transfer.create",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": [
+                    "USD",
+                    "EUR"
+                ],
+                "accepts": [
+                    100,
+                    101,
+                    102
+                ]
+            }
+        },
+        "kyc": [
+            540,
+            737,
+            2836
+        ],
+        "signature": "a1b2c3d4e5f6...7f1b",
+        "contact": "dev@wallet.example"
+    },
+    "kyc-provider": {
+        "opencharge": "0.1",
+        "name": "TrustVerify KYC",
+        "profile": "Global KYC verification provider",
+        "icon": "https://kyc.provider.example/icon.png",
+        "config": {
+            "publicKey": "a34b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b",
+            "endpoint": "https://kyc.provider.example/opencharge",
+            "capabilities": [
+                "kyc.grant",
+                "kyc.validate",
+                "kyc.data"
+            ]
+        },
+        "kyc": [],
+        "signature": "a1b2c3d4e5f6...7f1b",
+        "contact": "support@kycprovider.example"
+    },
+    "enduser": {
+        "opencharge": "0.1",
+        "name": "Zomboko",
+        "profile": "Best superhero in the world",
+        "icon": "https://gravatar.com/avatar/zomboko",
+        "config": {
+            "publicKey": "a34b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b"
+        },
+        "kyc": [400,675],
+        "signature": "a1x4c33ee5f6...7f1b",
+        "contact": "x.com/zomboko"
+    }
+}

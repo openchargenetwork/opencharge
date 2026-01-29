@@ -13,58 +13,67 @@ class OcidSeeder extends Seeder
         $kycProvider = Ocid::factory()->kycProvider()->create([
             'ocid' => '540',
             'name' => 'TrustVerify KYC',
-            'profile' => 'Global KYC verification provider',
+            'icon'=>'/logos/Alchemy.avif',
+            'profile' => 'TrustVerify is a Global KYC verification provider',
         ]);
 
         $kycProvider2 = Ocid::factory()->kycProvider()->create([
             'ocid' => '737',
             'name' => 'SecureID',
-            'profile' => 'Enterprise identity verification',
+            'icon'=>'/logos/Blast.avif',
+            'profile' => 'One ID now linked to your OCID - Enterprise identity verification',
         ]);
 
         $kycProvider3 = Ocid::factory()->kycProvider()->create([
             'ocid' => '2836',
             'name' => 'VerifyNow',
-            'profile' => 'Instant KYC verification service',
+            'icon'=>'/logos/Coinflow.avif',
+            'profile' => 'Fastest KYC Process, complete KYC in under one minute - Instant KYC verification service',
         ]);
 
         // Create gateways
         $merchantGateway = Ocid::factory()->merchantGateway()->create([
             'ocid' => '100',
             'name' => 'PayFlow Gateway',
-            'profile' => 'Hosted checkout for online merchants',
+            'icon'=>'/logos/Octane.avif',
+            'profile' => 'Merhants love us, PayFlow the number one Hosted checkout for online merchants',
         ]);
 
         $paymentGateway = Ocid::factory()->paymentGateway()->create([
             'ocid' => '101',
             'name' => 'QuickPay Wallet',
-            'profile' => 'Mobile wallet for fast payments',
+            'icon'=>'/logos/Pantera20Capital.avif',
+            'profile' => 'Fast and secure payment gateway for all your transaction needs',
         ]);
 
         $paymentGateway2 = Ocid::factory()->paymentGateway()->create([
             'ocid' => '102',
             'name' => 'CryptoFlow',
-            'profile' => 'Cryptocurrency payment gateway',
+            'icon'=>'/logos/Spearbit.avif',
+            'profile' => 'We are proud to join the OCN. Cryptocurrency payment and settlement at your fingertips',
         ]);
 
         // Create merchants
         $merchant = Ocid::factory()->merchant()->create([
             'ocid' => '1001',
             'name' => 'Coffee Shop',
-            'profile' => 'Local coffee shop accepting Opencharge payments',
+            'icon'=>'/logos/Magic.avif',
+            'profile' => 'Best coffer in NewYork. Enjoy a coffee using over 12 Opencharge payment gateways',
         ]);
 
         $merchant2 = Ocid::factory()->merchant()->create([
             'ocid' => '1002',
             'name' => 'TechStore Online',
-            'profile' => 'Electronics retailer with global shipping',
+            'icon'=>'/logos/SynFutures.avif',
+            'profile' => 'Shop online for the best Electronics. OCN compliant retailer with global shipping',
         ]);
 
         // Create end users
         $enduser = Ocid::factory()->enduser()->create([
             'ocid' => '5001',
             'name' => 'Zomboko',
-            'profile' => 'Best superhero in the world',
+            'icon'=>'/logos/Apillon20Embedded20Wallet20Service.avif',
+            'profile' => 'My name is Zomboko, Glad to meet you all. Iam a full stack opencharge api developer',
         ]);
 
         Ocid::factory()->enduser()->count(5)->create();

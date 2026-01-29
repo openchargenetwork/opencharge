@@ -26,6 +26,49 @@
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
+    --color-accent-pink-50: #fbf4ff;
+    --color-accent-pink-200: #eecfff;
+    --color-accent-pink-700: #8e1ab1;
+    --color-accent-green-50: #e0f1ed;
+    --color-accent-green-700: #147457;
+    --color-accent-blue-50: #eff9ff;
+    --color-accent-blue-500: #06a4f1;
+    --color-accent-blue-700: #0068a7;
+    --color-accent-orange-50: #fef5f2;
+    --color-accent-orange-200: #ffd5c8;
+    --color-accent-orange-700: #be3f17;
+    --color-accent-yellow-50: #fffbeb;
+    --color-accent-yellow-700: #b45309;
+    --color-state-critical-50: #fef2f2;
+    --color-state-critical-300: #fca5a5;
+    --color-state-critical-600: #dc2626;
+    --color-state-critical-700: #b91c1c;
+    --color-state-success-50: #f0fdf4;
+    --color-state-success-700: #15803d;
+    --color-state-warning-50: #fff7ed;
+    --color-state-warning-700: #c2410c;
+    --color-gradient-decorative-blue-100: #36beff;
+    --color-gradient-decorative-blue-200: #733ff1;
+    --color-gradient-vibrant-pink-100: #9850f3;
+    --color-gradient-vibrant-pink-200: #ff0ae6;
+    --color-gradient-vibrant-blue-100: #05f;
+    --color-gradient-vibrant-blue-200: #21d6ef;
+    --color-gradient-vibrant-purple-100: #5498ff;
+    --color-gradient-vibrant-purple-200: #a131f9;
+    --color-gradient-vibrant-orange-100: #ff3a3a;
+    --color-gradient-vibrant-orange-200: #fe8862;
+    --color-gradient-vibrant-yellow-100: #ff9e0d;
+    --color-gradient-vibrant-yellow-200: #f13f3f;
+    --color-gradient-vibrant-fuchsia-100: #ff37dc;
+    --color-gradient-vibrant-fuchsia-200: #733ff1;
+    --color-gradient-vibrant-red-100: #ff37dc;
+    --color-gradient-vibrant-red-200: #f30404;
+    --color-gradient-vibrant-green-100: #00e5d8;
+    --color-gradient-vibrant-green-200: #049df3;
+    --color-gradient-vibrant-greenblue-100: #3dd39a;
+    --color-gradient-vibrant-greenblue-200: #1cb7cf;
+    --color-gradient-vibrant-walletservices-100: #ff9c27;
+    --color-gradient-vibrant-walletservices-200: #fd48ce;
 }
 
 @layer theme {
@@ -52,7 +95,7 @@
 }
 
 [data-flux-label] {
-    @apply  !mb-0 !leading-tight;
+    @apply !mb-0 !leading-tight;
 }
 
 input:focus[data-flux-control],
@@ -76,8 +119,15 @@ select:focus[data-flux-control] {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 /* Glow pulse for blockchain/tech elements */
@@ -86,9 +136,12 @@ select:focus[data-flux-control] {
 }
 
 @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
     }
+
     50% {
         box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
     }
@@ -102,7 +155,9 @@ select:focus[data-flux-control] {
 }
 
 @keyframes draw-path {
-    to { stroke-dashoffset: 0; }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
 /* Particle moving along SVG path */
@@ -112,10 +167,23 @@ select:focus[data-flux-control] {
 }
 
 @keyframes move-particle {
-    0% { offset-distance: 0%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { offset-distance: 100%; opacity: 0; }
+    0% {
+        offset-distance: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        offset-distance: 100%;
+        opacity: 0;
+    }
 }
 
 /* Gradient text for hero */
@@ -129,15 +197,15 @@ select:focus[data-flux-control] {
 /* Subtle grid background pattern */
 .bg-grid-pattern {
     background-image:
-        linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
 .dark .bg-grid-pattern {
     background-image:
-        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 /* Scroll-triggered animation utilities */
@@ -153,14 +221,37 @@ select:focus[data-flux-control] {
 }
 
 /* Stagger delays for grid items */
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
-.stagger-5 { transition-delay: 0.5s; }
-.stagger-6 { transition-delay: 0.6s; }
-.stagger-7 { transition-delay: 0.7s; }
-.stagger-8 { transition-delay: 0.8s; }
+.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.stagger-2 {
+    transition-delay: 0.2s;
+}
+
+.stagger-3 {
+    transition-delay: 0.3s;
+}
+
+.stagger-4 {
+    transition-delay: 0.4s;
+}
+
+.stagger-5 {
+    transition-delay: 0.5s;
+}
+
+.stagger-6 {
+    transition-delay: 0.6s;
+}
+
+.stagger-7 {
+    transition-delay: 0.7s;
+}
+
+.stagger-8 {
+    transition-delay: 0.8s;
+}
 
 /* Connection line animation */
 .animate-connection {
@@ -180,13 +271,24 @@ select:focus[data-flux-control] {
 }
 
 @keyframes success-pop {
-    0% { transform: scale(0.8); opacity: 0; }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+
     .animate-float,
     .animate-float-delayed,
     .animate-pulse-glow,

@@ -19,8 +19,8 @@
                     </a>
 
                     <div class="flex items-center gap-4">
-                        <a href="{{ route('directory.index') }}" class="text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 {{ request()->routeIs('directory.*') ? '!text-blue-600 dark:!text-blue-400' : '' }}">
-                            Directory
+                        <a href="{{ route('ecosystem.index') }}" class="text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 {{ request()->routeIs('ecosystem.*') ? '!text-blue-600 dark:!text-blue-400' : '' }}">
+                            Ecosystem
                         </a>
 
                         @auth

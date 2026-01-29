@@ -10,7 +10,7 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::livewire('directory', 'pages::directory.index')->name('directory.index');
-Route::livewire('directory/{ocid}', 'pages::directory.show')->name('directory.show');
+Route::livewire('ecosystem', 'pages::ecosystem.index')->name('ecosystem.index');
+Route::livewire('ecosystem/{ocid}', 'pages::ecosystem.show')->name('ecosystem.show');
 
 require __DIR__.'/settings.php';

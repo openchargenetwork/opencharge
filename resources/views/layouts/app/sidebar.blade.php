@@ -12,8 +12,8 @@
 
             <flux:sidebar.nav>
                 <flux:sidebar.group :heading="__('Platform')" class="grid">
-                    <flux:sidebar.item icon="users" :href="route('directory.index')" :current="request()->routeIs('directory.*')" wire:navigate>
-                        {{ __('Directory') }}
+                    <flux:sidebar.item icon="users" :href="route('ecosystem.index')" :current="request()->routeIs('ecosystem.*')" wire:navigate>
+                        {{ __('Ecosystem') }}
                     </flux:sidebar.item>
                     @auth
                         <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>

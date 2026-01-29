@@ -17,11 +17,11 @@ new class extends Component {
     }
 }; ?>
 
-<div class="w-full max-w-4xl">
+<div class="w-full mt-12 max-w-4xl">
     <div class="mb-6">
-        <flux:link href="{{ route('directory.index') }}" class="inline-flex items-center gap-1 text-sm">
+        <flux:link href="{{ route('ecosystem.index') }}" class="inline-flex items-center gap-1 text-sm">
             <flux:icon.arrow-left class="size-4" />
-            {{ __('Back to Directory') }}
+            {{ __('Back to Ecosystem') }}
         </flux:link>
     </div>
 
@@ -42,7 +42,7 @@ new class extends Component {
             <div class="flex-1">
                 <div class="mb-2 flex items-center gap-3">
                     <flux:heading size="xl">{{ $record->name }}</flux:heading>
-                    <x-directory.type-badge :type="$record->type" />
+                    <x-ecosystem.type-badge :type="$record->type" />
                 </div>
 
                 @if ($record->profile)
@@ -93,7 +93,7 @@ new class extends Component {
                 <flux:heading size="sm" class="mb-3">{{ __('Capabilities') }}</flux:heading>
                 <div class="flex flex-wrap gap-2">
                     @foreach ($record->capabilities as $capability)
-                        <x-directory.capability-badge :capability="$capability" />
+                        <x-ecosystem.capability-badge :capability="$capability" />
                     @endforeach
                 </div>
             </div>
@@ -119,7 +119,7 @@ new class extends Component {
                 <flux:heading size="sm" class="mb-3">{{ __('Verified By') }}</flux:heading>
                 <div class="flex flex-wrap gap-2">
                     @foreach ($record->kycProviders as $kyc)
-                        <flux:link href="{{ route('directory.show', $kyc->ocid) }}">
+                        <flux:link href="{{ route('ecosystem.show', $kyc->ocid) }}">
                             <flux:badge color="purple">{{ $kyc->name }}</flux:badge>
                         </flux:link>
                     @endforeach
@@ -134,7 +134,7 @@ new class extends Component {
                 <flux:heading size="sm" class="mb-3">{{ __('Accepts Payments From') }}</flux:heading>
                 <div class="flex flex-wrap gap-2">
                     @foreach ($record->acceptedPartners as $partner)
-                        <flux:link href="{{ route('directory.show', $partner->ocid) }}">
+                        <flux:link href="{{ route('ecosystem.show', $partner->ocid) }}">
                             <flux:badge color="blue">{{ $partner->name }}</flux:badge>
                         </flux:link>
                     @endforeach
@@ -149,7 +149,7 @@ new class extends Component {
                 <flux:heading size="sm" class="mb-3">{{ __('Accepted By') }}</flux:heading>
                 <div class="flex flex-wrap gap-2">
                     @foreach ($record->acceptedBy as $acceptor)
-                        <flux:link href="{{ route('directory.show', $acceptor->ocid) }}">
+                        <flux:link href="{{ route('ecosystem.show', $acceptor->ocid) }}">
                             <flux:badge color="green">{{ $acceptor->name }}</flux:badge>
                         </flux:link>
                     @endforeach

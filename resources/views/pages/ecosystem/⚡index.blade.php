@@ -69,9 +69,9 @@ new class extends Component {
     }
 }; ?>
 
-<div class="w-full">
+<div class="w-full my-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8">
-        <flux:heading size="xl">{{ __('OCID Directory') }}</flux:heading>
+        <flux:heading size="xl">{{ __('OCID Ecosystem') }}</flux:heading>
         <flux:subheading>{{ __('Browse registered OpenCharge identities') }}</flux:subheading>
     </div>
 
@@ -112,7 +112,7 @@ new class extends Component {
     @else
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($this->ocids as $ocid)
-                <x-directory.ocid-card :ocid="$ocid" wire:key="ocid-{{ $ocid->id }}" />
+                <x-ecosystem.ocid-card :ocid="$ocid" wire:key="ocid-{{ $ocid->id }}" />
             @endforeach
         </div>
 

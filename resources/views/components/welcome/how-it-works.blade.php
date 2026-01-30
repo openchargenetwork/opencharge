@@ -85,9 +85,8 @@
                             <span class="text-2xl font-bold text-purple-600 dark:text-purple-400">3</span>
                         </div>
                     </div>
-                    <h3 class="font-semibold text-lg mb-2">On-Chain Settlement</h3>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400">Users app settles USDT/USDC to the protocol smart
-                        contract</p>
+                    <h3 class="font-semibold text-lg mb-2">Instant Settlement</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">Users app settles via a common provider e.g Bank or USDT </p>
                 </div>
 
                 <!-- Step 4: Merchant Receives -->
@@ -108,7 +107,7 @@
                         </div>
                     </div>
                     <h3 class="font-semibold text-lg mb-2">Merchant App verifies</h3>
-                    <p class="text-sm text-zinc-600 dark:text-zinc-400">Merchant app verifies the payment on-chain, releases
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400">Merchant app verifies the payment, releases
                         goods/service</p>
                 </div>
             </div>
@@ -129,7 +128,7 @@
                         <h4 class="font-semibold text-lg mb-1 text-blue-900 dark:text-blue-100">Key Principle</h4>
                         <p class="text-blue-800 dark:text-blue-200">
                             The protocol decouples "who collects the money" from "who receives the money."
-                            The merchant app never trusts the payment app. They trust the blockchain settlement. 
+                            The merchant app never trusts the payment app. They trust their settlement provider. 
                         </p>
                     </div>
                 </div>

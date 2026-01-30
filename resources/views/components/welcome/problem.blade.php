@@ -8,7 +8,7 @@
             </h2>
             <p :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
                 class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto transition-all duration-700 delay-100">
-                Payments are fragmented. Every merchant integration is a new silo.
+                Payments are fragmented. Every api integration is a new silo.
             </p>
         </div>
 

@@ -59,7 +59,7 @@
 
             <!-- Subheadline -->
             <p class="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-                The open interoperability protocol that lets any merchant accept payments from any app — through one integration.
+               Its like HTTP for the web, but for payments. It doesn’t move money; it standardizes how payment systems talk about moving money.
             </p>
 
             <!-- CTA Buttons -->

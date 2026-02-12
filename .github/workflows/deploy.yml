@@ -51,7 +51,7 @@ jobs:
             cd $WWW_DIR/$SITE_NAME && git checkout main
 
             echo "# Install composer dependencies"
-            composer update --no-dev --no-interaction --prefer-dist --optimize-autoloader
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
             echo "# Install & Compile npm assets"
             npm i && npm run build

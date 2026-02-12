@@ -20,6 +20,9 @@
         this.sepolia = sepolia;
     }
 }" class="w-screen overflow-x-hidden">
+    <div class="bg-amber-500/90 text-amber-950 text-center text-sm font-semibold py-1.5 px-4">
+        This API specification is currently still in <strong>Testnet beta</strong> — endpoints and responses may change without notice.
+    </div>
     <header class="bg-background sticky top-0 z-50 transition-colors border-muted-foreground/30">
         <div class="mx-auto w-full max-w-7xl pt-3 pb-3 px-4 sm:px-5 lg:px-6 flex items-center gap-2 md:gap-3 h-18">
             <div class="flex items-center gap-3 shrink-0">

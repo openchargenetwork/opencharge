@@ -12,7 +12,7 @@ export const createSiwe = () => {
     const metadata = {
         name: 'Opencharge Network',
         description: 'An open protocol for payment interoperability',
-        url: 'http://localhost', // origin must match your domain & subdomain
+        url: 'https://opencharge.network', // origin must match your domain & subdomain
         icons: ['https://violet-registered-wasp-238.mypinata.cloud/ipfs/bafkreidmgbkfprzbd2ovqw4hdwvtkj5awf2ws66jcl7mhr5jxr4qvjqhma']
     }
 

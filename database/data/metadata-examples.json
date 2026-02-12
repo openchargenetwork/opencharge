@@ -1,0 +1,329 @@
+{
+    "0x-coffee": {
+        "type": "merchant",
+        "opencharge": "0.1",
+        "OCID": "32",
+        "name": "0x Coffee",
+        "profile": "Specialty coffee roasters accepting crypto payments since 2022",
+        "icon": "/images/0x.svg",
+        "config": {
+            "publicKey": "a34b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b",
+            "endpoint": "https://api.0xcoffee.io/opencharge",
+            "capabilities": [
+                "orders.create",
+                "orders.status",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD"],
+                "accepts": [304, 88, 21]
+            }
+        },
+        "kyc": [74, 150],
+        "signature": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "contact": "hello@0xcoffee.io"
+    },
+    "hyperspace-market": {
+        "type": "merchant",
+        "opencharge": "0.1",
+        "OCID": "55",
+        "name": "Hyperspace Market",
+        "profile": "Decentralized marketplace for digital and physical goods",
+        "icon": "/images/Hyperspace.avif",
+        "config": {
+            "publicKey": "b45c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+            "endpoint": "https://api.hyperspace.market/opencharge",
+            "capabilities": [
+                "orders.create",
+                "orders.status",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD", "EUR", "BRL"],
+                "accepts": [304, 88, 190, 620]
+            }
+        },
+        "kyc": [74, 150, 280],
+        "signature": "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+        "contact": "merchants@hyperspace.market"
+    },
+    "illuvium-store": {
+        "type": "merchant",
+        "opencharge": "0.1",
+        "OCID": "410",
+        "name": "Illuvium Store",
+        "profile": "Official game asset store with in-game item checkout",
+        "icon": "/images/Illuvium.avif",
+        "config": {
+            "publicKey": "c56d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f",
+            "endpoint": "https://store.illuvium.io/opencharge",
+            "capabilities": [
+                "orders.create",
+                "orders.status",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD", "ETH"],
+                "accepts": [304, 21, 190]
+            }
+        },
+        "kyc": [74, 280],
+        "signature": "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+        "contact": "payments@illuvium.io"
+    },
+    "wei-tools": {
+        "type": "merchant",
+        "opencharge": "0.1",
+        "OCID": "345",
+        "name": "Wei Tools",
+        "profile": "Developer tooling and gas optimization services",
+        "icon": "/images/Wei20Converter.avif",
+        "config": {
+            "publicKey": "d67e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b",
+            "endpoint": "https://api.weitools.dev/opencharge",
+            "capabilities": [
+                "orders.create",
+                "orders.status",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD", "USDC"],
+                "accepts": [88, 190, 620]
+            }
+        },
+        "kyc": [150, 280],
+        "signature": "e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6",
+        "contact": "billing@weitools.dev"
+    },
+    "payflow-gateway": {
+        "type": "merchant-gateway",
+        "opencharge": "0.1",
+        "OCID": "304",
+        "name": "PayFlow Gateway",
+        "profile": "Enterprise-grade hosted checkout for online merchants with multi-currency support",
+        "icon": "/images/Zerion.avif",
+        "config": {
+            "publicKey": "e78f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d",
+            "endpoint": "https://pay.payflow.io/opencharge",
+            "capabilities": [
+                "orders.checkout",
+                "transfer.create",
+                "transfer.webhook",
+                "payment.create",
+                "payment.settle",
+                "verify.txid"
+            ],
+            "settlement": {
+                "currencies": ["USD", "EUR", "GBP"],
+                "accepts": [21, 190, 620]
+            }
+        },
+        "kyc": [74, 150, 280],
+        "signature": "f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7",
+        "contact": "integrations@payflow.io"
+    },
+    "superfluid-pay": {
+        "type": "merchant-gateway",
+        "opencharge": "0.1",
+        "OCID": "88",
+        "name": "Superfluid Pay",
+        "profile": "Streaming payment gateway enabling real-time settlement for subscriptions and payroll",
+        "icon": "/images/Superfluid.avif",
+        "config": {
+            "publicKey": "f89a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f",
+            "endpoint": "https://pay.superfluid.finance/opencharge",
+            "capabilities": [
+                "orders.checkout",
+                "transfer.create",
+                "transfer.webhook",
+                "payment.create",
+                "payment.settle",
+                "verify.txid"
+            ],
+            "settlement": {
+                "currencies": ["USD", "EUR", "USDC", "DAI"],
+                "accepts": [304, 21, 190]
+            }
+        },
+        "kyc": [74, 150],
+        "signature": "a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8",
+        "contact": "payments@superfluid.finance"
+    },
+    "quickpay-wallet": {
+        "type": "payment-gateway",
+        "opencharge": "0.1",
+        "OCID": "21",
+        "name": "QuickPay Wallet",
+        "profile": "Mobile-first payment wallet with instant checkout and NFC tap-to-pay",
+        "icon": "/images/Zellic.avif",
+        "config": {
+            "publicKey": "a90b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b",
+            "endpoint": "https://api.quickpay.wallet/opencharge",
+            "capabilities": [
+                "checkout.create",
+                "orders.create.session",
+                "transfer.create",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD", "EUR"],
+                "accepts": [304, 88, 620]
+            }
+        },
+        "kyc": [74, 280],
+        "signature": "b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9",
+        "contact": "dev@quickpay.wallet"
+    },
+    "magic-wallet": {
+        "type": "payment-gateway",
+        "opencharge": "0.1",
+        "OCID": "190",
+        "name": "Magic Wallet",
+        "profile": "Passwordless authentication and embedded wallet for seamless onboarding",
+        "icon": "/images/Magic.avif",
+        "config": {
+            "publicKey": "b01c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d",
+            "endpoint": "https://api.magic.link/opencharge",
+            "capabilities": [
+                "checkout.create",
+                "orders.create.session",
+                "transfer.create",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD", "EUR", "GBP", "JPY"],
+                "accepts": [304, 88, 21]
+            }
+        },
+        "kyc": [74, 150, 280],
+        "signature": "c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0",
+        "contact": "partnerships@magic.link"
+    },
+    "apillon-wallet": {
+        "type": "payment-gateway",
+        "opencharge": "0.1",
+        "OCID": "620",
+        "name": "Apillon Wallet",
+        "profile": "Embedded wallet service for Web3 applications with fiat on-ramp",
+        "icon": "/images/Apillon20Embedded20Wallet20Service.avif",
+        "config": {
+            "publicKey": "c12d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f",
+            "endpoint": "https://api.apillon.io/opencharge",
+            "capabilities": [
+                "checkout.create",
+                "orders.create.session",
+                "transfer.create",
+                "transfer.webhook"
+            ],
+            "settlement": {
+                "currencies": ["USD", "EUR", "DOT"],
+                "accepts": [304, 88, 21, 190]
+            }
+        },
+        "kyc": [74, 150],
+        "signature": "d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1",
+        "contact": "support@apillon.io"
+    },
+    "trustverify-kyc": {
+        "type": "kyc-provider",
+        "opencharge": "0.1",
+        "OCID": "74",
+        "name": "TrustVerify KYC",
+        "profile": "Global identity verification with biometric liveness detection and document scanning",
+        "icon": "/images/Forta.avif",
+        "config": {
+            "publicKey": "d23e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+            "endpoint": "https://api.trustverify.com/opencharge",
+            "capabilities": [
+                "kyc.grant",
+                "kyc.validate",
+                "kyc.data"
+            ]
+        },
+        "kyc": [],
+        "signature": "e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2",
+        "contact": "support@trustverify.com"
+    },
+    "chainguard-compliance": {
+        "type": "kyc-provider",
+        "opencharge": "0.1",
+        "OCID": "150",
+        "name": "ChainGuard Compliance",
+        "profile": "On-chain AML screening and real-time transaction monitoring for regulated entities",
+        "icon": "/images/Spearbit.avif",
+        "config": {
+            "publicKey": "e34f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d",
+            "endpoint": "https://api.chainguard.security/opencharge",
+            "capabilities": [
+                "kyc.grant",
+                "kyc.validate",
+                "kyc.data"
+            ]
+        },
+        "kyc": [],
+        "signature": "f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3",
+        "contact": "compliance@chainguard.security"
+    },
+    "identitylink": {
+        "type": "kyc-provider",
+        "opencharge": "0.1",
+        "OCID": "280",
+        "name": "IdentityLink",
+        "profile": "Decentralized identity verification using zero-knowledge proofs and verifiable credentials",
+        "icon": "/images/Mirror World.svg",
+        "config": {
+            "publicKey": "f45a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f",
+            "endpoint": "https://api.identitylink.io/opencharge",
+            "capabilities": [
+                "kyc.grant",
+                "kyc.validate",
+                "kyc.data"
+            ]
+        },
+        "kyc": [],
+        "signature": "a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4",
+        "contact": "hello@identitylink.io"
+    },
+    "zomboko": {
+        "type": "enduser",
+        "opencharge": "0.1",
+        "OCID": "762",
+        "name": "Zomboko",
+        "profile": "Best superhero in the world",
+        "icon": "/images/Colony.avif",
+        "config": {
+            "publicKey": "a56b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b"
+        },
+        "kyc": [74, 150],
+        "signature": "b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5",
+        "contact": "x.com/zomboko"
+    },
+    "defi-dave": {
+        "type": "enduser",
+        "opencharge": "0.1",
+        "OCID": "500",
+        "name": "DeFi Dave",
+        "profile": "DeFi power user and yield farmer",
+        "icon": "/images/DeFi20Saver.avif",
+        "config": {
+            "publicKey": "b67c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d"
+        },
+        "kyc": [74, 280],
+        "signature": "c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+        "contact": "x.com/defidave"
+    },
+    "xpawa-user": {
+        "type": "enduser",
+        "opencharge": "0.1",
+        "OCID": "920",
+        "name": "xpawa",
+        "profile": "Cross-chain payments enthusiast and early adopter",
+        "icon": "/images/xpawa.png",
+        "config": {
+            "publicKey": "c78d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f"
+        },
+        "kyc": [150, 280],
+        "signature": "d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7",
+        "contact": "x.com/xpawa"
+    }
+}

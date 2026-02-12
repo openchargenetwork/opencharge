@@ -1,16 +1,20 @@
 <?php
 
+use App\Models\Ocid;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/ecosystem', function () {
+    return view('ocids');
+})->name('ecosystem');
 
-Route::livewire('ecosystem', 'pages::ecosystem.index')->name('ecosystem.index');
-Route::livewire('ecosystem/{ocid}', 'pages::ecosystem.show')->name('ecosystem.show');
+Route::get('/ecosystem/{ocid}', function (Ocid $ocid) {
+    return view('show-ocid', ['ocid' => $ocid]);
+})->name('ocid.show');
 
-require __DIR__.'/settings.php';
+Route::get('/create-ocid', function () {
+    return view('create-ocid');
+})->name('create-ocid');

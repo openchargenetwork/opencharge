@@ -2,131 +2,98 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Enums\OcidStatus;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Ocid extends Model
 {
-    /** @use HasFactory<\Database\Factories\OcidFactory> */
-    use HasFactory;
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        'ocid',
-        'type',
+        'user_id',
+        'token_id',
         'opencharge_version',
         'name',
         'profile',
         'icon',
-        'config',
+        'public_key',
+        'endpoint',
+        'capabilities',
+        'settlement_currencies',
+        'settlement_accepts',
+        'kyc',
         'signature',
         'contact',
+        'testnet',
+        'valid_signature',
+        'status',
+        'tags',
     ];
 
     /**
+     * The attributes that should be cast.
+     *
      * @return array<string, string>
      */
-    protected function casts(): array
+    protected function casts()
     {
         return [
-            'config' => 'array',
+            'capabilities' => 'array',
+            'settlement_currencies' => 'array',
+            'settlement_accepts' => 'array',
+            'kyc' => 'array',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'valid_signature' => 'boolean',
+            'testnet' => 'boolean',
+            'status' => OcidStatus::class,
+            'tags' => 'array',
         ];
     }
 
     /**
-     * @return BelongsTo<User, $this>
+     * Rebuild the complete OCID JSON structure
      */
-    public function user(): BelongsTo
+    public function buildOcidJson(): array
     {
-        return $this->belongsTo(User::class, 'ocid', 'ocid');
+        return [
+            'opencharge' => $this->opencharge_version,
+            'name' => $this->name,
+            'profile' => $this->profile,
+            'icon' => $this->icon,
+            'config' => [
+                'publicKey' => $this->public_key,
+                'endpoint' => $this->endpoint,
+                'capabilities' => $this->capabilities ?? [],
+                'settlement' => [
+                    'currencies' => $this->settlement_currencies ?? [],
+                    'accepts' => $this->settlement_accepts ?? [],
+                ],
+            ],
+            'kyc' => $this->kyc ?? [],
+            'signature' => $this->signature,
+            'contact' => $this->contact,
+        ];
     }
 
     /**
-     * KYC providers that have verified this entity.
-     *
-     * @return BelongsToMany<Ocid, $this>
+     * Get the OCID JSON as a formatted string
      */
-    public function kycProviders(): BelongsToMany
+    public function toOcidJson(): string
     {
-        return $this->belongsToMany(self::class, 'ocid_kyc', 'ocid_id', 'kyc_provider_id');
+        return json_encode($this->buildOcidJson(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 
-    /**
-     * Entities that this KYC provider has verified.
-     *
-     * @return BelongsToMany<Ocid, $this>
-     */
-    public function kycVerifiedEntities(): BelongsToMany
+    public function user()
     {
-        return $this->belongsToMany(self::class, 'ocid_kyc', 'kyc_provider_id', 'ocid_id');
+        return $this->belongsTo(User::class);
     }
 
-    /**
-     * Partners/gateways this entity accepts for settlement.
-     *
-     * @return BelongsToMany<Ocid, $this>
-     */
-    public function acceptedPartners(): BelongsToMany
+    public function countries()
     {
-        return $this->belongsToMany(self::class, 'ocid_accepts', 'ocid_id', 'accepts_id');
-    }
-
-    /**
-     * Entities that accept this gateway/partner.
-     *
-     * @return BelongsToMany<Ocid, $this>
-     */
-    public function acceptedBy(): BelongsToMany
-    {
-        return $this->belongsToMany(self::class, 'ocid_accepts', 'accepts_id', 'ocid_id');
-    }
-
-    /**
-     * @return Attribute<array<string>, never>
-     */
-    protected function capabilities(): Attribute
-    {
-        return Attribute::get(fn (): array => $this->config['capabilities'] ?? []);
-    }
-
-    /**
-     * @return Attribute<array<string>, never>
-     */
-    protected function currencies(): Attribute
-    {
-        return Attribute::get(fn (): array => $this->config['settlement']['currencies'] ?? []);
-    }
-
-    /**
-     * @param  Builder<Ocid>  $query
-     * @return Builder<Ocid>
-     */
-    public function scopeOfType(Builder $query, string $type): Builder
-    {
-        return $query->where('type', $type);
-    }
-
-    /**
-     * @param  Builder<Ocid>  $query
-     * @return Builder<Ocid>
-     */
-    public function scopeWithCapability(Builder $query, string $capability): Builder
-    {
-        return $query->whereJsonContains('config->capabilities', $capability);
-    }
-
-    /**
-     * @param  Builder<Ocid>  $query
-     * @return Builder<Ocid>
-     */
-    public function scopeSearch(Builder $query, string $term): Builder
-    {
-        return $query->where(function (Builder $q) use ($term) {
-            $q->where('name', 'like', "%{$term}%")
-                ->orWhere('profile', 'like', "%{$term}%");
-        });
+        return $this->belongsToMany(Country::class, 'country_ocid', 'ocid_id', 'country_id');
     }
 }

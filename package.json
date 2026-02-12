@@ -7,10 +7,17 @@
         "dev": "vite"
     },
     "dependencies": {
+        "@lowerdeck/canonicalize": "^1.0.4",
+        "@noble/secp256k1": "^3.0.0",
+        "@raugfer/jazzicon": "^1.0.6",
+        "@reown/appkit": "^1.8.17",
+        "@reown/appkit-adapter-ethers": "^1.8.17",
+        "@reown/appkit-siwe": "^1.8.17",
         "@tailwindcss/vite": "^4.1.11",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
+        "ethers": "^6.16.0",
         "laravel-vite-plugin": "^2.0",
         "tailwindcss": "^4.0.7",
         "vite": "^7.0.4"

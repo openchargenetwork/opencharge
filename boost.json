@@ -1,13 +1,16 @@
 {
     "agents": [
         "claude_code",
-        "copilot"
+        "opencode"
     ],
-    "editors": [
-        "claude_code",
-        "vscode"
-    ],
-    "guidelines": [
-        "laravel/fortify"
+    "guidelines": true,
+    "herd_mcp": false,
+    "mcp": true,
+    "sail": false,
+    "skills": [
+        "fluxui-development",
+        "livewire-development",
+        "volt-development",
+        "tailwindcss-development"
     ]
 }

@@ -2,102 +2,74 @@
 
 namespace Database\Seeders;
 
+use App\Enums\OcidStatus;
+use App\Enums\OcidTags;
 use App\Models\Ocid;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class OcidSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        // Create KYC providers first (they'll be referenced by others)
-        $kycProvider = Ocid::factory()->kycProvider()->create([
-            'ocid' => '540',
-            'name' => 'TrustVerify KYC',
-            'icon'=>'/logos/Alchemy.avif',
-            'profile' => 'TrustVerify is a Global KYC verification provider',
-        ]);
+        $jsonPath = database_path('data/metadata-examples.json');
 
-        $kycProvider2 = Ocid::factory()->kycProvider()->create([
-            'ocid' => '737',
-            'name' => 'SecureID',
-            'icon'=>'/logos/Blast.avif',
-            'profile' => 'One ID now linked to your OCID - Enterprise identity verification',
-        ]);
+        if (! File::exists($jsonPath)) {
+            $this->command->warn('Metadata examples file not found: '.$jsonPath);
 
-        $kycProvider3 = Ocid::factory()->kycProvider()->create([
-            'ocid' => '2836',
-            'name' => 'VerifyNow',
-            'icon'=>'/logos/Coinflow.avif',
-            'profile' => 'Fastest KYC Process, complete KYC in under one minute - Instant KYC verification service',
-        ]);
+            return;
+        }
 
-        // Create gateways
-        $merchantGateway = Ocid::factory()->merchantGateway()->create([
-            'ocid' => '100',
-            'name' => 'PayFlow Gateway',
-            'icon'=>'/logos/Octane.avif',
-            'profile' => 'Merhants love us, PayFlow the number one Hosted checkout for online merchants',
-        ]);
+        $json = File::get($jsonPath);
+        $data = json_decode($json, true);
 
-        $paymentGateway = Ocid::factory()->paymentGateway()->create([
-            'ocid' => '101',
-            'name' => 'QuickPay Wallet',
-            'icon'=>'/logos/Pantera20Capital.avif',
-            'profile' => 'Fast and secure payment gateway for all your transaction needs',
-        ]);
+        if (! is_array($data)) {
+            $this->command->error('Invalid JSON in metadata examples file.');
 
-        $paymentGateway2 = Ocid::factory()->paymentGateway()->create([
-            'ocid' => '102',
-            'name' => 'CryptoFlow',
-            'icon'=>'/logos/Spearbit.avif',
-            'profile' => 'We are proud to join the OCN. Cryptocurrency payment and settlement at your fingertips',
-        ]);
+            return;
+        }
 
-        // Create merchants
-        $merchant = Ocid::factory()->merchant()->create([
-            'ocid' => '1001',
-            'name' => 'Coffee Shop',
-            'icon'=>'/logos/Magic.avif',
-            'profile' => 'Best coffer in NewYork. Enjoy a coffee using over 12 Opencharge payment gateways',
-        ]);
+        $tagMap = [
+            'merchant' => [OcidTags::Merchant],
+            'merchant-gateway' => [OcidTags::Gateway, OcidTags::PaymentProcessing],
+            'payment-gateway' => [OcidTags::Wallet, OcidTags::Gateway],
+            'kyc-provider' => [OcidTags::Compliance],
+            'enduser' => [OcidTags::Wallet, OcidTags::PeerToPeer],
+        ];
 
-        $merchant2 = Ocid::factory()->merchant()->create([
-            'ocid' => '1002',
-            'name' => 'TechStore Online',
-            'icon'=>'/logos/SynFutures.avif',
-            'profile' => 'Shop online for the best Electronics. OCN compliant retailer with global shipping',
-        ]);
+        foreach ($data as $key => $item) {
+            $type = $item['type'] ?? $key;
 
-        // Create end users
-        $enduser = Ocid::factory()->enduser()->create([
-            'ocid' => '5001',
-            'name' => 'Zomboko',
-            'icon'=>'/logos/Apillon20Embedded20Wallet20Service.avif',
-            'profile' => 'My name is Zomboko, Glad to meet you all. Iam a full stack opencharge api developer',
-        ]);
+            $this->command->info("Seeding OCID: {$item['OCID']} - {$item['name']}");
 
-        Ocid::factory()->enduser()->count(5)->create();
+            $tags = array_map(
+                fn (OcidTags $tag) => $tag->value,
+                $tagMap[$type] ?? [],
+            );
 
-        // Set up KYC relationships
-        $merchantGateway->kycProviders()->attach([$kycProvider->id, $kycProvider2->id, $kycProvider3->id]);
-        $paymentGateway->kycProviders()->attach([$kycProvider->id, $kycProvider2->id, $kycProvider3->id]);
-        $paymentGateway2->kycProviders()->attach([$kycProvider->id]);
-        $merchant->kycProviders()->attach([$kycProvider->id, $kycProvider2->id]);
-        $merchant2->kycProviders()->attach([$kycProvider->id]);
-        $enduser->kycProviders()->attach([$kycProvider->id]);
-
-        // Set up accepts relationships (which gateways merchants accept)
-        $merchant->acceptedPartners()->attach([$merchantGateway->id, $paymentGateway->id, $paymentGateway2->id]);
-        $merchant2->acceptedPartners()->attach([$merchantGateway->id, $paymentGateway->id]);
-
-        // Create more random OCIDs
-        Ocid::factory()->merchant()->count(5)->create()->each(function (Ocid $ocid) use ($kycProvider, $merchantGateway, $paymentGateway) {
-            $ocid->kycProviders()->attach($kycProvider->id);
-            $ocid->acceptedPartners()->attach([$merchantGateway->id, $paymentGateway->id]);
-        });
-
-        Ocid::factory()->paymentGateway()->count(3)->create()->each(function (Ocid $ocid) use ($kycProvider) {
-            $ocid->kycProviders()->attach($kycProvider->id);
-        });
+            Ocid::updateOrCreate(
+                ['token_id' => $item['OCID']],
+                [
+                    'opencharge_version' => $item['opencharge'] ?? '0.1',
+                    'name' => $item['name'] ?? null,
+                    'profile' => $item['profile'] ?? null,
+                    'icon' => $item['icon'] ?? null,
+                    'public_key' => $item['config']['publicKey'] ?? null,
+                    'endpoint' => $item['config']['endpoint'] ?? null,
+                    'capabilities' => $item['config']['capabilities'] ?? [],
+                    'settlement_currencies' => $item['config']['settlement']['currencies'] ?? [],
+                    'settlement_accepts' => $item['config']['settlement']['accepts'] ?? [],
+                    'kyc' => $item['kyc'] ?? [],
+                    'signature' => $item['signature'] ?? null,
+                    'contact' => $item['contact'] ?? null,
+                    'status' => OcidStatus::Active,
+                    'valid_signature' => true,
+                    'tags' => $tags,
+                ]
+            );
+        }
     }
 }

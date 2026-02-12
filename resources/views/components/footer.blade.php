@@ -65,38 +65,28 @@
         <div class="mt-6 pt-4">
             <div class="flex items-center justify-between">
                 <p class="text-xs text-muted-foreground">© 2026 Opencharge. All rights reserved.</p>
-                <div class="scale-75 md:scale-100 origin-right"
-                    x-data="{
-                        appearance: localStorage.getItem('appearance') || 'system',
-                        applyTheme(value) {
-                            this.appearance = value;
-                            localStorage.setItem('appearance', value);
-                            const isDark = value === 'dark' || (value === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                            document.documentElement.classList.toggle('dark', isDark);
-                        }
-                    }"
-                    x-init="window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (appearance === 'system') applyTheme('system') })">
+                <div class="scale-75 md:scale-100 origin-right">
                     <div role="group" dir="ltr" class="inline-flex items-center gap-1 bg-transparent"
                         aria-label="Theme selector" tabindex="0" style="outline: none;">
-                        <button type="button" x-on:click="applyTheme('light')"
-                            :data-state="appearance === 'light' ? 'on' : 'off'"
-                            :aria-checked="appearance === 'light'"
+                        <button type="button" x-on:click="$flux.appearance ='light'"
+                            :data-state="$flux.appearance === 'light' ? 'on' : 'off'"
+                            :aria-checked="$flux.appearance  === 'light'"
                             role="radio"
                             class="inline-flex items-center justify-center rounded-md p-2 data-[state=on]:bg-secondary data-[state=off]:text-muted-foreground"
                             aria-label="Light theme" tabindex="-1">
                             <x-lucide-sun class="size-4" />
                         </button>
-                        <button type="button" x-on:click="applyTheme('system')"
-                            :data-state="appearance === 'system' ? 'on' : 'off'"
-                            :aria-checked="appearance === 'system'"
+                        <button type="button" x-on:click="$flux.appearance ='system'"
+                            :data-state="$flux.appearance  === 'system' ? 'on' : 'off'"
+                            :aria-checked="$flux.appearance  === 'system'"
                             role="radio"
                             class="inline-flex items-center justify-center rounded-md p-2 data-[state=on]:bg-secondary data-[state=off]:text-muted-foreground"
                             aria-label="System theme" tabindex="-1">
                             <x-lucide-monitor class="size-4" />
                         </button>
-                        <button type="button" x-on:click="applyTheme('dark')"
-                            :data-state="appearance === 'dark' ? 'on' : 'off'"
-                            :aria-checked="appearance === 'dark'"
+                        <button type="button" x-on:click="$flux.appearance='dark'"
+                            :data-state="$flux.appearance === 'dark' ? 'on' : 'off'"
+                            :aria-checked="$flux.appearance === 'dark'"
                             role="radio"
                             class="inline-flex items-center justify-center rounded-md p-2 data-[state=on]:bg-secondary data-[state=off]:text-muted-foreground"
                             aria-label="Dark theme" tabindex="-1">

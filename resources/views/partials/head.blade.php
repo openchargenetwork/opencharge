@@ -14,10 +14,4 @@
 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
-<script>
-    (function() {
-        var appearance = localStorage.getItem('appearance') || 'system';
-        var isDark = appearance === 'dark' || (appearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        if (isDark) { document.documentElement.classList.add('dark'); }
-    })();
-</script>
+@fluxAppearance

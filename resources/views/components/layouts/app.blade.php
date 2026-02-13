@@ -27,7 +27,8 @@
         <div class="mx-auto w-full max-w-7xl pt-3 pb-3 px-4 sm:px-5 lg:px-6 flex items-center gap-2 md:gap-3 h-18">
             <div class="flex items-center gap-3 shrink-0">
                 <a class="text-xl font-bold hover:opacity-80 shrink-0" href="/">
-                    <x-app-logo class="h-6.25 w-auto" />
+                    <x-app-logo class="h-6.25 w-auto hidden md:block" />
+                    <x-logo-icon class="h-6.25 w-auto md:hidden" />
                 </a>
             </div>
             <div class="flex flex-1 max-w-140 transition-opacity duration-300 opacity-100">

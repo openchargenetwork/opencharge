@@ -30,7 +30,7 @@
                     </svg>
                     <div class="flex lg:hidden justify-center mb-6 relative">
 
-                        <img alt="Smithery mascot" width="200" height="280" decoding="async" data-nimg="1"
+                        <img alt="Opencharge mascot" width="200" height="280" decoding="async" data-nimg="1"
                             class="relative z-10" src="/svgs/mascot-determined.svg" style="color: transparent;">
                     </div>
                     <div
@@ -93,7 +93,7 @@
                                 </defs>
                                 <polygon points="47,0 53,0 58,26 0,26" fill="url(#lightConeGradient)"
                                     mask="url(#lightConeMask)"></polygon>
-                            </svg><img alt="Smithery mascot" width="550" height="355" decoding="async"
+                            </svg><img alt="Opencharge mascot" width="550" height="355" decoding="async"
                                 class="relative z-10" src="/svgs/mascot.svg" style="color: transparent;"></div>
                     </div>
                 </section>
@@ -306,39 +306,44 @@
                                 <div class="border text-card-foreground border-dashed border-foreground backdrop-blur-sm shadow-none rounded-lg flex flex-col overflow-hidden bg-background"
                                     style="border-width: 1px; padding: 16px; box-sizing: border-box; max-height: 150px;">
                                     <div class="text-[16px] font-normal leading-4.5 wrap-break-word text-foreground">
-                                        <span class="font-bold">Auto vending machines.</span> Accept multi-provider
-                                        payments at the point of sale — no per-gateway hardware or contracts needed.
+                                        <span class="font-bold">AI agents.</span> Enable autonomous agents discover,
+                                        negotiate, and execute payments across the network — machine-to-machine.
                                     </div>
-                                    <div class="flex items-center justify-end mt-3 mr-2"><svg width="120"
+                                    <div class="flex items-center justify-end mt-3 mr-2">
+                                        
+                                    <svg width="120"
                                             height="70" viewBox="0 0 120 70">
-                                            <rect x="30" y="0" width="60" height="70" rx="6"
-                                                ry="6" fill="none" stroke="hsl(var(--foreground))"
-                                                stroke-width="1.5"></rect>
-                                            <rect x="38" y="8" width="44" height="24" rx="3"
-                                                ry="3" fill="hsl(var(--foreground))" fill-opacity="0.1"
-                                                stroke="hsl(var(--foreground))" stroke-width="1"
-                                                stroke-opacity="0.5"></rect>
-                                            <rect x="40" y="14" width="10" height="6" rx="1"
-                                                fill="hsl(var(--foreground))" fill-opacity="0.3"></rect>
-                                            <rect x="54" y="14" width="10" height="6" rx="1"
-                                                fill="hsl(var(--foreground))" fill-opacity="0.3"></rect>
-                                            <rect x="68" y="14" width="10" height="6" rx="1"
-                                                fill="hsl(var(--foreground))" fill-opacity="0.3"></rect>
-                                            <rect x="40" y="22" width="10" height="6" rx="1"
-                                                fill="hsl(var(--foreground))" fill-opacity="0.3"></rect>
-                                            <rect x="54" y="22" width="10" height="6" rx="1"
-                                                fill="hsl(var(--foreground))" fill-opacity="0.3"></rect>
-                                            <rect x="68" y="22" width="10" height="6" rx="1"
-                                                fill="hsl(var(--foreground))" fill-opacity="0.3"></rect>
-                                            <rect x="38" y="38" width="20" height="24" rx="3"
-                                                ry="3" fill="hsl(var(--foreground))" fill-opacity="0.15"
-                                                stroke="hsl(var(--foreground))" stroke-width="1"
-                                                stroke-opacity="0.4"></rect>
-                                            <circle cx="72" cy="50" r="8" fill="none"
-                                                stroke="hsl(var(--foreground))" stroke-width="1.5"
-                                                stroke-opacity="0.6"></circle>
-                                            <circle cx="72" cy="50" r="2" fill="hsl(var(--foreground))"
+                                            <circle cx="35" cy="28" r="14" fill="none"
+                                                stroke="hsl(var(--foreground))" stroke-width="1.5"></circle>
+                                            <circle cx="31" cy="24" r="2" fill="hsl(var(--foreground))"
                                                 fill-opacity="0.6"></circle>
+                                            <circle cx="39" cy="24" r="2" fill="hsl(var(--foreground))"
+                                                fill-opacity="0.6"></circle>
+                                            <path d="M29 32 Q35 37 41 32" fill="none"
+                                                stroke="hsl(var(--foreground))" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-opacity="0.6"></path>
+                                            <line x1="35" y1="14" x2="35" y2="8"
+                                                stroke="hsl(var(--foreground))" stroke-width="1.5"
+                                                stroke-opacity="0.5"></line>
+                                            <circle cx="35" cy="6" r="2" fill="hsl(var(--foreground))"
+                                                fill-opacity="0.4"></circle>
+                                            <line x1="49" y1="28" x2="71" y2="28"
+                                                stroke="hsl(var(--foreground) / 0.3)" stroke-width="2"
+                                                stroke-linecap="round" stroke-dasharray="4 4"></line>
+                                            <circle cx="85" cy="28" r="14" fill="none"
+                                                stroke="hsl(var(--foreground))" stroke-width="1.5"></circle>
+                                            <circle cx="81" cy="24" r="2" fill="hsl(var(--foreground))"
+                                                fill-opacity="0.6"></circle>
+                                            <circle cx="89" cy="24" r="2" fill="hsl(var(--foreground))"
+                                                fill-opacity="0.6"></circle>
+                                            <path d="M79 32 Q85 37 91 32" fill="none"
+                                                stroke="hsl(var(--foreground))" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-opacity="0.6"></path>
+                                            <line x1="85" y1="14" x2="85" y2="8"
+                                                stroke="hsl(var(--foreground))" stroke-width="1.5"
+                                                stroke-opacity="0.5"></line>
+                                            <circle cx="85" cy="6" r="2" fill="hsl(var(--foreground))"
+                                                fill-opacity="0.4"></circle>
                                         </svg></div>
                                 </div>
                             </div>

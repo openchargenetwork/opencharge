@@ -61,8 +61,7 @@ export const createSiwe = () => {
             return;
         }
         // Create the AppKit instance
-        if (window.modal) return [window.modal, ethers, bsc, sepolia]
-        window.modal = createAppKit({
+        const appkit = createAppKit({
             adapters: [new EthersAdapter()],
             projectId,
             metadata,
@@ -70,7 +69,7 @@ export const createSiwe = () => {
             defaultNetwork: bsc,
             themeMode: themeMode ?? 'light',
         });
-        return [window.modal, ethers, bsc, sepolia];
+        return [appkit, ethers, bsc, sepolia];
     };
 }
 // Initialize SIWE when the document is loaded
